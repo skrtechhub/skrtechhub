@@ -90,6 +90,7 @@
                 <a href="about.html" class="nav-item nav-link">About Us</a>
                 <a href="course.html" class="nav-item nav-link">Our Videos</a>
                 <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                <a href="#" class="nav-item nav-link" onclick="openLoginPopup()">Admin login</a>
             </div>
             <div class="d-flex justify-content-center mt-2">
                 <a class="btn btn-danger rounded-pill mx-2 px-4 py-2" href="https://www.youtube.com/@SKRTechHub" target="_blank">
@@ -106,6 +107,113 @@
     </nav>
 </div>
 <!-- Navbar End -->
+
+<!-- Login Popup -->
+<div id="loginPopup" class="popup" style="display: none;">
+    <div class="popup-content">
+        <span class="close" onclick="closeLoginPopup()">&times;</span>
+        <h2>Admin Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" class="input-field" placeholder="Enter Username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" class="input-field" placeholder="Enter Password">
+        <button class="login-btn" onclick="checkLogin()">Login</button>
+        <p id="errorMessage" class="error-message"></p>
+    </div>
+</div>
+
+<!-- CSS for Popup -->
+<style>
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 300px;
+}
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #555;
+}
+.close:hover {
+    color: red;
+}
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-btn, .back-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.login-btn {
+    background: #007bff;
+    color: white;
+}
+.login-btn:hover {
+    background: #0056b3;
+}
+.back-btn {
+    background: #6c757d;
+    color: white;
+}
+.back-btn:hover {
+    background: #5a6268;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+</style>
+
+<!-- JavaScript for Login -->
+<script>
+function openLoginPopup() {
+    document.getElementById('loginPopup').style.display = 'flex';
+}
+function closeLoginPopup() {
+    document.getElementById('loginPopup').style.display = 'none';
+}
+function checkLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if (username === "satyam508575" && password === "skrpoweredbysatyamrajak") {
+        window.location.href = "admin.html";
+    } else {
+        document.getElementById("errorMessage").innerText = "Invalid Username or Password";
+    }
+}
+</script>
+
+
+
 
 
     <!-- Carousel Start -->

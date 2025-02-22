@@ -83,7 +83,6 @@
                 <a href="about.html" class="nav-item nav-link">About Us</a>
                 <a href="course.html" class="nav-item nav-link">Our Videos</a>
                 <a href="contact.html" class="nav-item nav-link">Contact Us</a>
-                <a href="#" class="nav-item nav-link" onclick="openLoginPopup()">Admin login</a>
             </div>
             <div class="d-flex justify-content-center mt-2">
                 <a class="btn btn-danger rounded-pill mx-2 px-4 py-2" href="https://www.youtube.com/@SKRTechHub" target="_blank">
@@ -102,223 +101,49 @@
 <!-- Navbar End -->
 
 
-<!-- Login Popup -->
-<div id="loginPopup" class="popup" style="display: none;">
-    <div class="popup-content">
-        <span class="close" onclick="closeLoginPopup()">&times;</span>
-        <h2>Admin Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" class="input-field" placeholder="Enter Username">
-        <label for="password">Password:</label>
-        <input type="password" id="password" class="input-field" placeholder="Enter Password">
-        <button class="login-btn" onclick="checkLogin()">Login</button>
-        <p id="errorMessage" class="error-message"></p>
+<!-- Admin Section -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Admin Panel</h2>
+    <div class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-user-tie fa-3x text-primary mr-3"></i>
+        <h4>Videos</h4>
+        <button class="btn btn-primary ml-3" onclick="openAddVideoModal()">
+            <i class="fas fa-video"></i> Add Video
+        </button>
     </div>
 </div>
 
-<!-- CSS for Popup -->
-<style>
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.popup-content {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    width: 300px;
-}
-.close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #555;
-}
-.close:hover {
-    color: red;
-}
-.input-field {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.login-btn, .back-btn {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-.login-btn {
-    background: #007bff;
-    color: white;
-}
-.login-btn:hover {
-    background: #0056b3;
-}
-.back-btn {
-    background: #6c757d;
-    color: white;
-}
-.back-btn:hover {
-    background: #5a6268;
-}
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-}
-</style>
+<!-- Add Video Modal -->
+<div id="addVideoModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-content" style="background: white; padding: 20px; margin: 10% auto; width: 50%; border-radius: 10px; text-align: center;">
+        <span class="close" onclick="closeAddVideoModal()" style="float: right; cursor: pointer;">&times;</span>
+        <h3>Add Video</h3>
+        <input type="text" id="videoTitle" placeholder="Enter Video Title" class="form-control mb-2">
+        <input type="text" id="videoLink" placeholder="Enter YouTube Link" class="form-control mb-2">
+        <button class="btn btn-success" onclick="addVideo()">Submit</button>
+    </div>
+</div>
 
-<!-- JavaScript for Login -->
+
+<!-- JavaScript -->
 <script>
-function openLoginPopup() {
-    document.getElementById('loginPopup').style.display = 'flex';
+function openAddVideoModal() {
+    document.getElementById('addVideoModal').style.display = 'block';
 }
-function closeLoginPopup() {
-    document.getElementById('loginPopup').style.display = 'none';
+function closeAddVideoModal() {
+    document.getElementById('addVideoModal').style.display = 'none';
 }
-function checkLogin() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if (username === "satyam508575" && password === "skrpoweredbysatyamrajak") {
-        window.location.href = "admin.html";
+function addVideo() {
+    let title = document.getElementById("videoTitle").value;
+    let link = document.getElementById("videoLink").value;
+    if (title && link) {
+        alert("Video Added: " + title + " - " + link);
+        closeAddVideoModal();
     } else {
-        document.getElementById("errorMessage").innerText = "Invalid Username or Password";
+        alert("Please fill all fields");
     }
 }
 </script>
-
-
-
-
- <!-- Header Start -->
-<div class="container-fluid page-header" style="margin-bottom: 90px; background: url('img/cnt.jpg') no-repeat center center/cover;">
-    <div class="container">
-        <div class="d-flex flex-column justify-content-center" style="min-height: 300px;">
-            <h3 class="display-4 text-primary text-uppercase"></h3>
-            <div class="d-inline-flex text-black">
-                <p class="m-0 text-uppercase"><a class="text-primary" href=""></a></p>
-                <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                <p class="m-0 text-uppercase"></p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Header End -->
-
-
-
-    <!-- Contact Start -->
-    <a name="form1718593127" id="formAnchor1718593127" style="align-items: center;"></a>
-<script src="https://fs11.formsite.com/include/form/embedManager.js?1718593127"></script>
-<script>
-EmbedManager.embed({
-    key: "https://fs11.formsite.com/res/showFormEmbed?EParam=B6fiTn-RcO434myQmwHQg4tnCkg3VqvK&1718593127",
-    width: "100%"
-});
-</script>
-    <!-- Contact End -->
-
-
-
-<!-- Testimonials Start -->
-<div class="container-fluid py-5 bg-light">
-    <div class="container py-5">
-        <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Clients</h5>
-            <h1 class="mb-4">What Our Clients Say</h1>
-        </div>
-        <div class="owl-carousel testimonial-carousel">
-            <!-- Testimonial 5 -->
-<div class="testimonial-item text-center bg-white p-4 shadow rounded">
-    <div class="d-flex justify-content-center mb-3">
-        <img class="rounded-circle" src="img/bablu.jpg" alt="Client 5" width="80" height="80">
-    </div>
-    <p class="text-muted">"Very informative and easy to understand. The way they explain complex topics is truly commendable!"</p>
-    <h5 class="mb-0">Mr. Bablu Baitha</h5>
-    <small>Electrician</small>
-</div>
-            <!-- Testimonial 1 -->
-            <div class="testimonial-item text-center bg-white p-4 shadow rounded">
-                <div class="d-flex justify-content-center mb-3">
-                    <img class="rounded-circle" src="img/team-1.jpg" alt="Client 1" width="80" height="80">
-                </div>
-                <p class="text-muted">"SKR Tech Hub provides amazing tech insights! Their reviews are clear and easy to understand. Highly recommended!"</p>
-                <h5 class="mb-0">Dr. Naveen Kumar</h5>
-                <small>Doctor</small>
-            </div>
-            
-            <!-- Testimonial 2 -->
-            <div class="testimonial-item text-center bg-white p-4 shadow rounded">
-                <div class="d-flex justify-content-center mb-3">
-                    <img class="rounded-circle" src="img/team-2.jpg" alt="Client 2" width="80" height="80">
-                </div>
-                <p class="text-muted">"I love their YouTube videos! The reviews are detailed and informative. Keep up the great work, SKR Tech Hub!"</p>
-                <h5 class="mb-0">Shubham Kumar</h5>
-                <small>Student</small>
-            </div>
-            
-            <!-- Testimonial 3 -->
-            <div class="testimonial-item text-center bg-white p-4 shadow rounded">
-                <div class="d-flex justify-content-center mb-3">
-                    <img class="rounded-circle" src="img/team-3.jpg" alt="Client 3" width="80" height="80">
-                </div>
-                <p class="text-muted">"Their insights on AI and tech trends are fantastic. I've learned a lot from their content. Looking forward to more!"</p>
-                <h5 class="mb-0">Vivek Kumar</h5>
-                <small>Student</small>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Testimonials End -->
-
-<style>
-.testimonial-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-</style>
-
-<!-- Owl Carousel Initialization -->
-<script>
-$(document).ready(function(){
-    $(".testimonial-carousel").owlCarousel({
-        loop: true,
-        margin: 30,
-        nav: false,
-        dots: true,
-        autoplay: true,
-        responsive: {
-            0: { items: 1 },
-            768: { items: 2 },
-            992: { items: 3 }
-        }
-    });
-});
-</script>
-
 
 
 <!-- Footer Start -->
